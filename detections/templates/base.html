@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="SemiColonWeb" />
+
+  {% load static %}
+  <!-- Stylesheets
+	============================================= -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/swiper.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/dark.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/font-icons.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css" />
+  {% block stylesheet %}{% endblock %}
+
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Document Title
+	============================================= -->
+  <title>Detect Parkinsons | {% block title %}{% endblock %}</title>
+
+</head>
+
+<body class="stretched">
+
+  <!-- Document Wrapper
+	============================================= -->
+  <div id="wrapper" class="clearfix">
+
+    <!-- Header
+		============================================= -->
+    <header id="header" class="transparent-header full-header no-sticky">
+
+      <div id="header-wrap">
+
+        <div class="container clearfix">
+
+          <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+          <!-- Logo
+					============================================= -->
+          <div id="logo">
+            <a href="index.html" class="standard-logo" data-dark-logo="{% static 'images/logo-dark.png' %}"><img src="{% static 'images/logo.png' %}" alt="Canvas Logo"></a>
+            <a href="index.html" class="retina-logo" data-dark-logo="{% static 'images/logo-dark@2x.png' %}"><img src="{% static 'images/logo@2x.png' %}" alt="Canvas Logo"></a>
+          </div><!-- #logo end -->
+
+          <!-- Primary Navigation
+          ============================================= -->
+          <nav id="primary-menu">
+
+            {% include "partials/_menu.html" %}
+
+            <!-- Top Cart
+            ============================================= -->
+            <!-- {% include "partials/_top-cart.html" %} -->
+            <!-- #top-cart end -->
+
+            <!-- Top Search
+            ============================================= -->
+            <!-- {% include "partials/_top-search.html" %} -->
+            <!-- #top-search end -->
+
+          </nav><!-- #primary-menu end -->
+
+        </div>
+
+      </div>
+
+    </header><!-- #header end -->
+
+    <!-- Content
+		============================================= -->
+    {% block content %}{% endblock %}
+
+    <!-- #content end -->
+
+    <!-- Footer
+		============================================= -->
+    <!-- <footer id="footer" class="dark"> -->
+
+    <!-- <div class="container"> -->
+
+    <!-- Footer Widgets
+        ============================================= -->
+    <!-- {% include "partials/_footer-widgets.html" %} -->
+    <!-- .footer-widgets-wrap end -->
+
+    <!-- </div> -->
+
+    <!-- Copyrights
+      ============================================= -->
+    <!-- {% include "partials/_copyrights.html" %} -->
+    <!-- #copyrights end -->
+
+    </footer><!-- #footer end -->
+
+  </div><!-- #wrapper end -->
+
+  <!-- Go To Top
+	============================================= -->
+  <div id="gotoTop" class="icon-angle-up"></div>
+
+  <!-- External JavaScripts
+	============================================= -->
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/plugins.js' %}"></script>
+
+  {% block scripts %}{% endblock %}
+
+  <!-- Footer Scripts
+	============================================= -->
+  <script src="{% static 'js/functions.js' %}"></script>
+
+</body>
+
+</html>

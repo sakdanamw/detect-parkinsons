@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Content
+============================================= -->
+<section id="content">
+
+  <div class="content-wrap">
+
+    <div class="container clearfix">
+      <div class="center">
+        <h1><span>Parkinson's detection results</span></h1>
+        <!-- <span>A short sub-text to define the heading</span> -->
+      </div>
+
+      <div class="line"></div>
+
+      <div class="row">
+        <div class="col-lg-6 bottommargin">
+          <h3 class="text-success">Healthy</h3>
+          <div class="masonry-thumbs clearfix" data-lightbox="gallery">
+            {% for healthy in healthy_list %}
+            <a href="/media/uploads/{{healthy}}" data-lightbox="gallery-item">
+              <img src="/media/uploads/{{healthy}}" alt="Gallery Image">
+              <div class="overlay">
+                <div class="overlay-wrap"><i class="icon-line-plus"></i></div>
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-lg-6 bottommargin">
+          <h3 class="text-danger">Parkinson</h3>
+          <div class="masonry-thumbs clearfix" data-lightbox="gallery">
+            {% for parkinson in parkinson_list %}
+            <a href="/media/uploads/{{parkinson}}" data-lightbox="gallery-item">
+              <img src="/media/uploads/{{parkinson}}" alt="Gallery Image">
+              <div class="overlay">
+                <div class="overlay-wrap"><i class="icon-line-plus"></i></div>
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="text-center">
+      <a href="{% url 'index' %}" type="submit" class="btn btn-outline-info btn-lg">Back</a>
+    </div>
+
+  </div>
+
+</section>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
