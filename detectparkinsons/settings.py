@@ -25,7 +25,10 @@ SECRET_KEY = 'r^j5ac-$j3=yl&_s^$1cl3&*szn=^@#$7)ru3--oi&!tvqt&!i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '47.241.73.238',
+    '47.241.73.238/detect-parkinsons']
 
 
 # Application definition

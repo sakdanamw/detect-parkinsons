@@ -115,7 +115,7 @@ def results(request):
             testingPath.append(testing)
         # define the path to the training and testing directories
         trainingPath = os.path.sep.join(
-            [settings.MEDIA_ROOT, "dataset", picType])
+            [settings.MEDIA_ROOT, "datasets", picType])
 
         # loading the training and testing data
         (trainX, trainY) = load_split(trainingPath)
@@ -222,7 +222,7 @@ def datasets(request):
     healthy = []
     parkinson = []
 
-    for file in os.listdir(os.path.join(settings.MEDIA_URL,  'dataset', 'spiral', 'healthy')):
+    for file in os.listdir(os.path.join(settings.MEDIA_ROOT,  'datasets', 'spiral', 'healthy')):
         print(file)
 
     context = {'healthy_list': healthy, 'parkinson': parkinson}
