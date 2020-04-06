@@ -24,21 +24,30 @@
 
       <div class="line"></div>
 
-      <h3>Detecting Parkinson's</h3>
+      <h3>Personal's Infomation</h3>
       <form action="{% url 'results' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
+          <div class="form-group row">
+            <label for="full_name" class="col-sm-2 col-form-label">Full Name</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="first_name" id="fullName" placeholder="First Name">
+            </div>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" name="last_name" id="fullName" placeholder="Last Name">
+            </div>
+          </div>
           <div class="row">
-            <label for="input-picture" class="col-sm-2 col-form-label">Type of picture</label>
+            <label for="input-picture" class="col-sm-2 col-form-label">Type Of Case</label>
             <div class="col-sm-10">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="pictureType" id="pictureType1" value="spiral" checked="">
+                <input class="form-check-input" type="radio" name="picture_type" id="pictureType1" value="spiral" checked="">
                 <label class="form-check-label" for="pictureType1">
                   Spiral
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="pictureType" id="pictureType2" value="wave">
+                <input class="form-check-input" type="radio" name="picture_type" id="pictureType2" value="wave">
                 <label class="form-check-label" for="pictureType2">
                   Wave
                 </label>

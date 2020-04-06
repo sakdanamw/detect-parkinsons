@@ -13,6 +13,8 @@ import argparse
 import cv2
 import os
 import uuid
+from .models import Testing
+from django.contrib import messages
 
 # Create your views here.
 
@@ -98,17 +100,19 @@ def results(request):
         # return the data and labels
         return (np.array(data), np.array(labels))
 
-    if request.method == 'POST' and request.FILES.getlist('file'):
+    if request.method == 'POST' and len(request.FILES.getlist('file')):
         files = request.FILES.getlist('file')
-        picType = request.POST['pictureType']
+        picType = request.POST['picture_type']
 
         testingPath = []
 
         for file in files:
             fs = FileSystemStorage(
                 location=settings.MEDIA_ROOT + '/uploads')
+
             filename = fs.save(uuid.uuid1().hex +
                                os.path.splitext(file.name)[1], file)
+            print(filename)
             uploaded_file_url = fs.url(filename)
             testing = os.path.sep.join(
                 [settings.MEDIA_ROOT, 'uploads', filename])
@@ -130,7 +134,7 @@ def results(request):
         trials = {}
 
         # loop over the number of trials to run
-        for i in range(0, 100):
+        for i in range(0, 25):
             # train the model
             model = RandomForestClassifier(n_estimators=100)
             model.fit(trainX, trainY)
@@ -216,6 +220,10 @@ def results(request):
             # images.append(output)
         context = {'healthy_list': healthy, 'parkinson_list': parkinson}
         return render(request, 'detections/result.html', context)
+    else:
+        messages.warning(request, 'Your account expires in three days.')
+
+    return render(request, 'detections/result.html')
 
 
 def datasets(request):
